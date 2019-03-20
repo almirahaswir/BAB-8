@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> AJAX </title>
+</head>
+
+<body>
+	<h1> Belajar AJAX</h1>
+	<p id="demo"> AJAX akan mengubah text ini</p>
+	<button type="button" onclick="loadDoc()">ubah</button>
+
+	<script>
+		//AJAX = asynchronous JavaScript And XML
+		function loadDoc() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState ==4 && this.status ==200) {
+					document.getElementById("demo").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET",
+				"https://gist.githubusercontent.com/bayunuriman14/053320defb8f28e0c367aeaa90610d4f/raw/118ad40712c0e70390f2466e477d08bf34f3a65/contoh_ajax.text", true);
+				xhttp.send();
+			}
+		</script>
+	</body>
+	</html>
